@@ -1,0 +1,30 @@
+<div class="card card-small" (click)="navigate()" tabindex="0">
+  <svg
+    class="material-icons"
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+  >
+    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+  </svg>
+
+  <span>Initiate Card Payment</span>
+</div>
+<br />
+<div class="card card-large">
+  Stored Card:<br />
+  - Amount: {{ (creditCard$ | async).amount }} <br />- Card Number:
+  {{ (creditCard$ | async).creditCardNumber }}<br />
+  - Card Holder Name: {{ (creditCard$ | async).cardHolder }}<br />
+  - Card Expiration Date: {{ (creditCard$ | async).expirationDate }}<br />
+  - Card SecurityCode: {{ (creditCard$ | async).securityCode }}
+</div>
+<br /><br /><br />
+<div class="view-container">
+  <toaster-container [toasterconfig]="toasterConfig"></toaster-container>
+
+  <router-outlet></router-outlet>
+
+  <div ng-view class="view-frame"></div>
+</div>
